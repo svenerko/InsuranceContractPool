@@ -77,8 +77,8 @@ contract InsuranceContractPool {
     // Gives out the amount available for insurance
     function getAmountAvailableForInsurance() private view returns(uint) {
         uint maxWeightAmount = (address(this).balance * maxWeightOfContract) / 100;
-        uint maxPercentageAmount = (address(this).balance * maxPercentageOfAllContracts) / 100;
-        return maxWeightAmount < (maxPercentageAmount - totalAmount) ? maxWeightAmount : (maxPercentageAmount - totalAmount);
+        uint maxPercentageAmount = ((address(this).balance * maxPercentageOfAllContracts) / 100) - totalAmount;
+        return maxWeightAmount < maxPercentageAmount ? maxWeightAmount : maxPercentageAmount;
     }
 
     // Gives out the amount available for withdrawal
@@ -109,5 +109,3 @@ contract InsuranceContractPool {
         return insuranceContractAddresses;
     }
 }
-
-// https://sepolia.etherscan.io/address/0x5B7C0027E8B0e0F67568c1D522e736fe07560869
