@@ -100,3 +100,5 @@ contract InsuranceContractPool {
         return insuranceContractAddresses;
     }
 }
+
+// https://sepolia.etherscan.io/address/0x7c1890Ca5ceFC43fB693a8D8524568dAb6608A15 etherscan link
